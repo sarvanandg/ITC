@@ -1,0 +1,10 @@
+{
+  "AudioSelectors": {
+    "Audio Selector 1": {
+      "DefaultSelection": "DEFAULT"
+    }
+  },
+  "VideoSelector": {},
+  "TimecodeSource": "ZEROBASED",
+  "FileInput": "s3://itc-input-source-files/rawvideo/Test1/TTF HINDI 30SEC 02 HD_1.mp4"
+}

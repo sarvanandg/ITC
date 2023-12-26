@@ -1,0 +1,77 @@
+{
+  "Description": "Concat the short clips",
+  "Category": "short clip",
+  "Queue": "arn:aws:mediaconvert:ap-south-1:840426506290:queues/Default",
+  "Name": "Transcoding_template",
+  "Settings": {
+    "TimecodeConfig": {
+      "Source": "ZEROBASED"
+    },
+    "OutputGroups": [
+      {
+        "CustomName": "Output Mp4",
+        "Name": "File Group",
+        "Outputs": [
+          {
+            "ContainerSettings": {
+              "Container": "MP4",
+              "Mp4Settings": {
+                "MoovPlacement": "PROGRESSIVE_DOWNLOAD"
+              }
+            },
+            "VideoDescription": {
+              "Width": 1080,
+              "Height": 720,
+              "CodecSettings": {
+                "Codec": "H_264",
+                "H264Settings": {
+                  "ParNumerator": 1,
+                  "MaxBitrate": 3000000,
+                  "ParDenominator": 1,
+                  "RateControlMode": "QVBR",
+                  "SceneChangeDetect": "TRANSITION_DETECTION",
+                  "QualityTuningLevel": "SINGLE_PASS_HQ",
+                  "ParControl": "SPECIFIED"
+                }
+              }
+            },
+            "AudioDescriptions": [
+              {
+                "CodecSettings": {
+                  "Codec": "AAC",
+                  "AacSettings": {
+                    "Bitrate": 96000,
+                    "CodingMode": "CODING_MODE_2_0",
+                    "SampleRate": 48000
+                  }
+                }
+              }
+            ],
+            "NameModifier": "_1080"
+          }
+        ],
+        "OutputGroupSettings": {
+          "Type": "FILE_GROUP_SETTINGS",
+          "FileGroupSettings": {}
+        }
+      }
+    ],
+    "Inputs": [
+      {
+        "AudioSelectors": {
+          "Audio Selector 1": {
+            "DefaultSelection": "DEFAULT"
+          }
+        },
+        "VideoSelector": {},
+        "TimecodeSource": "ZEROBASED"
+      }
+    ]
+  },
+  "AccelerationSettings": {
+    "Mode": "DISABLED"
+  },
+  "StatusUpdateInterval": "SECONDS_60",
+  "Priority": 0,
+  "HopDestinations": []
+}
